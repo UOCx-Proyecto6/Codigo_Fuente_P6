@@ -1,5 +1,8 @@
 package armas;
 
-public class Espada {
+public class Espada implements Arma {
 
+	
+	
+	
 }
