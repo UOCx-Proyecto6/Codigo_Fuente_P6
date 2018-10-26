@@ -1,5 +1,11 @@
 package armas;
 
-public class Hacha {
+public class Hacha implements Arma {
 
+	public static void armasAtaque() {
+		armasAtaque.put("Hacha", 2);
+		
+	}
+	
+	
 }
