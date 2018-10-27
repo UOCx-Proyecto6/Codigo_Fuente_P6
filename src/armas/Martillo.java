@@ -1,6 +1,6 @@
 package armas;
 
-public class Martillo implements Arma {
+public class Martillo  {
 
 		
 	

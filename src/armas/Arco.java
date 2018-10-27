@@ -1,6 +1,6 @@
 package armas;
 
-public class Arco implements Arma {
+public class Arco {
 
 	
 		
