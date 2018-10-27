@@ -10,7 +10,7 @@ public interface Arma {
 	public HashMap<String, Integer> armasDefensa = new HashMap<String, Integer> ();
 		
 	
-	public static void asignarArmaAtaqueAleatoria() {
+	public static Object asignarArmaAtaqueAleatoria() {
 
 		armasAtaque.put("Espada", 1);
 		armasAtaque.put("Hacha", 2);
@@ -21,6 +21,7 @@ public interface Arma {
 		Object armaAtaqueAleatoria = ataque[new Random().nextInt(ataque.length)];
 		System.out.println("************ Arma Ataque Aleatoria ************ \n" + armaAtaqueAleatoria + " :: " + armasAtaque.get(armaAtaqueAleatoria));
 		
+		return armaAtaqueAleatoria;
 
 	}
 
