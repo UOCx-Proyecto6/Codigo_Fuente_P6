@@ -4,7 +4,10 @@ import armas.Armas;
 
 public class Personaje_prueba {
 	
-	Object arma;
+	String nick_personaje;
+	Object arma;	
+	Object raza;
+	Object medioAmbiente;
 	
 	 
 	
@@ -26,10 +29,7 @@ public class Personaje_prueba {
 
 		Personaje_prueba p1 = new Personaje_prueba(armaAtaque);
 		System.out.println(p1.toString());
-		
-		
-		
-		
+			
 
 	}
 
