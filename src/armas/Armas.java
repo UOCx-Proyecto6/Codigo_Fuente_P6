@@ -21,7 +21,8 @@ public class Armas {
 		armasAtaque.put("Arco", 4);
 
 		ataque = armasAtaque.keySet().toArray();
-		armaAtaqueAleatoria = ataque[new Random().nextInt(ataque.length)];
+		int indexAleatorio = new Random().nextInt(ataque.length);
+		armaAtaqueAleatoria = ataque[indexAleatorio];
 		
 		armasDefensa.put("Arco", 0);
 		armasDefensa.put("Martillo", 1);
@@ -29,17 +30,17 @@ public class Armas {
 		armasDefensa.put("Espada", 3);
 		
 		defensa = armasDefensa.keySet().toArray();
-		armaDefensaAleatoria = defensa[new Random().nextInt(defensa.length)];
+		armaDefensaAleatoria = armaAtaqueAleatoria;
 		
-
+		
 	}
 		
 	
 	@Override
 	public String toString() {
 		
-		return "************ Arma Aleatoria ************ \n" + this.armaAtaqueAleatoria + " :: " + "( "+ armasAtaque.get(armaAtaqueAleatoria) + "ataque )" + 
-		"" ; 
+		return "************ Arma Aleatoria ************ \n" + this.armaAtaqueAleatoria + " :: " + "( "+ armasAtaque.get(armaAtaqueAleatoria) + " ataque )" + this.armaDefensaAleatoria +  
+		"( " + armasDefensa.get(armaDefensaAleatoria) + " defensa )" ; 
 				
 		
 	}
