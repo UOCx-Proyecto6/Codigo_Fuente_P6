@@ -33,13 +33,14 @@ public class Armas {
 		
 
 	}
-	
-	
+		
 	
 	@Override
 	public String toString() {
 		
-		return "************ Arma Ataque Aleatoria ************ \n" + this.armaAtaqueAleatoria + " :: " + armasAtaque.get(armaAtaqueAleatoria);
+		return "************ Arma Aleatoria ************ \n" + this.armaAtaqueAleatoria + " :: " + "( "+ armasAtaque.get(armaAtaqueAleatoria) + "ataque )" + 
+		"" ; 
+				
 		
 	}
 

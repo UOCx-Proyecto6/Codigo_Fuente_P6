@@ -11,8 +11,8 @@ public class Personaje_prueba {
 	
 	 
 	
-	public Personaje_prueba(Object arma) {
-		this.arma = arma;
+	public Personaje_prueba(Object armas) {
+		this.arma = armas;
 				
 	}
 	
