@@ -18,16 +18,16 @@ public class Personaje_prueba {
 	
 	public String toString() {
 		
-		return "" + this.arma;
+		return this.arma.toString();
 		
 	}
 	
 	
 	public static void main(String[] args) {
 		
-		Armas armaAtaque = new Armas();
+		Armas armas = new Armas();
 
-		Personaje_prueba p1 = new Personaje_prueba(armaAtaque);
+		Personaje_prueba p1 = new Personaje_prueba(armas);
 		System.out.println(p1.toString());
 			
 
