@@ -1,5 +1,5 @@
 package razas;
 
-public class Humano implements Raza {
+public class Humano {
 
 }

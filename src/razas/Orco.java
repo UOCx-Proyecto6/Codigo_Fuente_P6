@@ -1,5 +1,5 @@
 package razas;
 
-public class Orco implements Raza {
+public class Orco {
 
 }
