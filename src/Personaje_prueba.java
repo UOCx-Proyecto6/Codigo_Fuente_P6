@@ -10,7 +10,7 @@ public class Personaje_prueba {
 	Object raza;
 	Object medioAmbiente;
 	
-	 
+	
 	
 	public Personaje_prueba(Object armas, Object razas) {
 		this.arma = armas;
