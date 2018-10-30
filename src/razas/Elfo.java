@@ -1,6 +1,6 @@
 package razas;
 
-public class Elfo implements Raza {
+public class Elfo {
 
 	
 	

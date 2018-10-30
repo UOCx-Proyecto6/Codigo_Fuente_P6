@@ -26,6 +26,7 @@ public class Personaje_prueba {
 	public static void main(String[] args) {
 		
 		Armas armas = new Armas();
+		
 
 		Personaje_prueba p1 = new Personaje_prueba(armas);
 		System.out.println(p1.toString());
