@@ -27,14 +27,19 @@ public class Personaje_prueba {
 	
 	public static void main(String[] args) {
 		
-		Armas armas = new Armas();
-		Raza razas = new Raza();
+		try{
+			Armas armas = new Armas();
+			Raza razas = new Raza();
 		
-		razas.elegirRaza(0);
+			razas.elegirRaza(0);
 		
-		Personaje_prueba p1 = new Personaje_prueba(armas, razas);
-		System.out.println(p1.toString());
+			Personaje_prueba p1 = new Personaje_prueba(armas, razas);
+			System.out.println(p1.toString());
+		}catch(Exception e) {
 			
+			System.out.println("Error en el sistema. Vuelva a intentarlo");
+			
+		}	
 
 	}
 
