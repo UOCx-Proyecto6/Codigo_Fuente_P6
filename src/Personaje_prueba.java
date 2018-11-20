@@ -36,7 +36,7 @@ public class Personaje_prueba {
 			Raza razas = new Raza();
 			
 			System.out.println("***************** BIENVENIDO **************\n");
-			System.out.println("Elige la raza de tu personaje (0 humano) (1 demonio) (2 elfo) (3 orco): ");
+			System.out.println("Elige la raza de tu personaje (0 humano) (1 orco) (2 demonio) (3 elfo): ");
 			scannerAux = scanner.nextInt();
 		
 			razas.elegirRaza(scannerAux);
