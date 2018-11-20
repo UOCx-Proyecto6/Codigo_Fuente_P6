@@ -1,5 +1,5 @@
 package medioAmbiente;
 
-public interface MedioAmbiente {
+public class MedioAmbiente {
 
 }
