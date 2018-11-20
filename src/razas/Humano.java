@@ -2,16 +2,15 @@ package razas;
 
 public class Humano {
 	
-	int puntosAtaque = 5;
-	int puntosDefensa = 5;
+	static int PUNTOS_ATAQUE = 5;
+	static int PUNTOS_DEFENSA = 5;
 	int puntosTotales;
-	
-	
+		
 	public Humano() {
-		
-		
+			
 		
 	}
+	
 	
 
 }
