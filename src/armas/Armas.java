@@ -9,7 +9,7 @@ public class Armas {
 	public HashMap<String, Integer> armasDefensa = new HashMap<String, Integer>();
 	Object[] ataque;
 	Object[] defensa;
-	Object armaAtaqueAleatoria;
+	public Object armaAtaqueAleatoria;
 	Object armaDefensaAleatoria;
 	
 	
