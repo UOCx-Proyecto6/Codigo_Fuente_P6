@@ -2,7 +2,9 @@
 
 import java.util.Scanner;
 
+import DAO.DAODatosImpl;
 import armas.Armas;
+import interfaces.DAODatos;
 import razas.Raza;
 
 public class Personaje_prueba {
@@ -43,6 +45,25 @@ public class Personaje_prueba {
 		
 			Personaje_prueba p1 = new Personaje_prueba(armas, razas);
 			System.out.println(p1.toString());
+			
+			
+			
+			Raza raz=new Raza();
+			
+			raz.setArma(armas.armaAtaqueAleatoria);
+			raz.setRaza(razas.elegirRaza(scannerAux));
+			
+			try {
+				DAODatos dao=new DAODatosImpl();
+				dao.registrar(raz);
+
+				
+			}catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+			
+			
+			
 			
 		} catch(Exception e) {
 			
