@@ -2,6 +2,8 @@
 
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 import DAO.DAODatosImpl;
 import armas.Armas;
 import interfaces.DAODatos;
@@ -70,6 +72,66 @@ public class Personaje_prueba {
 			System.out.println("Error en el sistema. Vuelva a intentarlo");
 			
 		}	
+		
+		
+		
+		
+		
+		
+		Scanner entrada=new Scanner(System.in);
+		System.out.println("\nQuieres realizar otra operación: \n1: Listar \n2: Eliminar \n3: Salir");
+		
+		int opcion=entrada.nextInt();
+		
+		switch(opcion) {
+		
+		case 1:
+			
+			
+			Raza raz1=new Raza();
+			raz1.setArma("hola");
+			try {
+				DAODatos dao=new DAODatosImpl();
+				for(Raza r:dao.listar()) {
+					System.out.println(r.getId()+" "+r.getArma()+" "+r.getRaza());
+				}
+				
+			}catch(Exception e) {
+				
+				System.out.println(e.getMessage());
+			}
+			
+			
+			System.exit(0);
+			
+		case 2:
+			
+			Scanner opcion2=new Scanner(System.in);
+			System.out.println("Introduzca el id a eliminar");
+			int opc=entrada.nextInt();
+			
+			
+			Raza raz=new Raza();
+			raz.setId(opc);
+			
+			try{
+				
+				DAODatos dao=new DAODatosImpl();
+				dao.eliminar(raz);
+				System.out.println("Eliminado el id "+ opc + " ");
+
+			}catch(Exception e) {
+				
+				System.out.println(e.getMessage());
+			}
+			
+		case 3:
+			
+			System.out.println("Hasta pronto");
+		}
+		
+
+		System.exit(0);
 
 	}
 

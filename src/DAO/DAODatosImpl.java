@@ -4,6 +4,8 @@ import com.mysql.jdbc.*;
 import com.mysql.jdbc.PreparedStatement;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import interfaces.DAODatos;
 import razas.Raza;
@@ -53,7 +55,7 @@ public class DAODatosImpl extends Conexion implements DAODatos{
 	public void eliminar(Raza raz) throws Exception {
 		try {
 			this.conectar();
-			PreparedStatement st = (PreparedStatement) this.conexion.prepareStatement("DELETE datos SET arma WHERE id=?");
+			PreparedStatement st = (PreparedStatement) this.conexion.prepareStatement("DELETE FROM datos WHERE id = ? ");
 			st.setInt(1, raz.getId());
 			st.executeUpdate();
 		
@@ -62,6 +64,37 @@ public class DAODatosImpl extends Conexion implements DAODatos{
 		}finally {
 			this.cerrar();
 		}
+	}
+
+	@Override
+	public List<Raza> listar() throws Exception {
+		
+		List<Raza> lista=null;
+		
+		try {
+			this.conectar();
+			PreparedStatement st = (PreparedStatement) this.conexion.prepareStatement("SELECT * FROM datos");
+			
+			lista=new ArrayList();
+			ResultSet rs=st.executeQuery();
+			while(rs.next()) {
+				Raza raz=new Raza();
+				raz.setId(rs.getInt("id"));
+				raz.setArma(rs.getString("arma"));
+				raz.setRaza(rs.getString("raza"));
+				lista.add(raz);
+			}
+			
+			
+			rs.close();
+			st.close();
+		
+		}catch(Exception e) {
+			throw e;
+		}finally {
+			this.cerrar();
+		}
+		return lista;
 	}
 	
 	
