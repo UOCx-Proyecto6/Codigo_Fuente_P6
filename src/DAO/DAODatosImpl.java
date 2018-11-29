@@ -40,8 +40,11 @@ public class DAODatosImpl extends Conexion implements DAODatos{
 	public void modificar(Raza raz) throws Exception {
 		try {
 			this.conectar();
-			PreparedStatement st = (PreparedStatement) this.conexion.prepareStatement("UPDATE datos SET arma WHERE id=?");
-			st.setInt(1, raz.getId());
+			PreparedStatement st = (PreparedStatement) this.conexion.prepareStatement("UPDATE datos SET arma=?, raza=? WHERE id=?");
+			
+			st.setString(1, (String) raz.getArma());
+			st.setString(2, raz.getRaza());
+			st.setInt(3, raz.getId());
 			st.executeUpdate();
 		
 		}catch(Exception e) {

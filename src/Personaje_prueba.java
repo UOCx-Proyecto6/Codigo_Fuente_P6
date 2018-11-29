@@ -79,7 +79,7 @@ public class Personaje_prueba {
 		
 		
 		Scanner entrada=new Scanner(System.in);
-		System.out.println("\nQuieres realizar otra operación: \n1: Listar \n2: Eliminar \n3: Salir");
+		System.out.println("\nQuieres realizar otra operación: \n1: Listar \n2: Eliminar \n3: Modificar \n4: Salir");
 		
 		int opcion=entrada.nextInt();
 		
@@ -88,11 +88,14 @@ public class Personaje_prueba {
 		case 1:
 			
 			
-			Raza raz1=new Raza();
-			raz1.setArma("hola");
+			
 			try {
 				DAODatos dao=new DAODatosImpl();
+				
+				System.out.println("ID---Arma---Raza");
+
 				for(Raza r:dao.listar()) {
+					
 					System.out.println(r.getId()+" "+r.getArma()+" "+r.getRaza());
 				}
 				
@@ -108,7 +111,7 @@ public class Personaje_prueba {
 			
 			Scanner opcion2=new Scanner(System.in);
 			System.out.println("Introduzca el id a eliminar");
-			int opc=entrada.nextInt();
+			int opc=opcion2.nextInt();
 			
 			
 			Raza raz=new Raza();
@@ -124,8 +127,42 @@ public class Personaje_prueba {
 				
 				System.out.println(e.getMessage());
 			}
+		
+			System.exit(0);
 			
 		case 3:
+			
+			Scanner opcion3=new Scanner(System.in);
+			System.out.println("Introduzca el id a modificar");
+			int ent=opcion3.nextInt();
+			
+			Raza raze=new Raza();
+			raze.setId(ent);
+			
+			Scanner opcion4=new Scanner(System.in);
+			System.out.println("Introduzca la nueva arma");
+			
+			String ent2=opcion4.next();
+			raze.setArma(ent2);
+			
+			System.out.println("Introduzca la nueva raza");
+			String ent3=opcion4.next();
+			raze.setRaza(ent3);
+
+			try{
+				
+				DAODatos dao=new DAODatosImpl();
+				dao.modificar(raze);
+				System.out.println("Modificado con éxito");
+				System.exit(0);
+
+			}catch(Exception e) {
+				
+				System.out.println(e.getMessage());
+			}
+			
+			
+		case 4:
 			
 			System.out.println("Hasta pronto");
 		}
