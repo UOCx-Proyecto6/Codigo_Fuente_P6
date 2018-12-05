@@ -76,7 +76,7 @@ public class Personaje_prueba {
 		
 		
 		
-		
+		//entrada para segunda partes
 		
 		Scanner entrada=new Scanner(System.in);
 		System.out.println("\nQuieres realizar otra operación: \n1: Listar \n2: Eliminar \n3: Modificar \n4: Salir");
@@ -85,6 +85,7 @@ public class Personaje_prueba {
 		
 		switch(opcion) {
 		
+		//listar base de datos
 		case 1:
 			
 			
@@ -106,7 +107,9 @@ public class Personaje_prueba {
 			
 			
 			System.exit(0);
+		
 			
+		//eliminar según id a seleccionar	
 		case 2:
 			
 			Scanner opcion2=new Scanner(System.in);
@@ -129,7 +132,9 @@ public class Personaje_prueba {
 			}
 		
 			System.exit(0);
+		
 			
+		//modificar campos base de datos	
 		case 3:
 			
 			Scanner opcion3=new Scanner(System.in);
@@ -161,7 +166,8 @@ public class Personaje_prueba {
 				System.out.println(e.getMessage());
 			}
 			
-			
+		
+		//salir	
 		case 4:
 			
 			System.out.println("Hasta pronto");
