@@ -23,17 +23,35 @@ public class DAODatosImpl extends Conexion implements DAODatos{
 			//se crea el objeto Statement
 			PreparedStatement st = (PreparedStatement) this.conexion.prepareStatement("INSERT INTO datos(arma,raza) VALUES (?,?)");
 			st.setObject(1, raz.getArma());
-			st.setString(2, raz.getRaza());
+			st.setString(2, raz.getRaza());		
+				
+			// Las operaciones no se validan automaticamente
+			conexion.setAutoCommit(false); 
 			
-			//se ejecuta la sentencia
-			st.executeUpdate();
-			System.out.println("\nDatos registrados en base de datos");
+			// Si se hace la actualización se hace la transacción, en caso contrario se deshace			
+			if (st.executeUpdate() != 0){
+				conexion.commit();
+				st.executeUpdate();
+				System.out.println("\nDatos registrados en base de datos");
+			}
+			
+			else {
+				  conexion.rollback();
+				  System.out.println("\nLa transacción no se ha realizado");
+			}
+			
+			} catch (SQLException e) {	         
+	            try {
+	                // Deshace los cambios hechos dentro de la transaccion 
+	            	conexion.rollback();
+	            	System.out.println("Error: La transeferencia no se ha completado.");
+	            } catch (SQLException ex) {
+	            	throw ex;
+	        }
+			}finally {
+				this.cerrar();
+			}
 		
-		}catch(Exception e) {
-			throw e;
-		}finally {
-			this.cerrar();
-		}
 	}
 
 	@Override
@@ -45,13 +63,31 @@ public class DAODatosImpl extends Conexion implements DAODatos{
 			st.setString(1, (String) raz.getArma());
 			st.setString(2, raz.getRaza());
 			st.setInt(3, raz.getId());
-			st.executeUpdate();
-		
-		}catch(Exception e) {
-			throw e;
-		}finally {
-			this.cerrar();
-		}
+			
+			// Las operaciones no se validan automaticamente
+			conexion.setAutoCommit(false); 
+			
+			if (st.executeUpdate() != 0){
+				conexion.commit();
+				st.executeUpdate();
+				System.out.println("\nDatos registrados en base de datos");
+			}
+			else {
+				  conexion.rollback();
+				  System.out.println("\nLa transacción no se ha realizado");
+			}
+			
+			} catch (SQLException e) {	         
+	            try {
+	                // Deshace los cambios hechos dentro de la transaccion 
+	            	conexion.rollback();
+	            	System.out.println("Error: La transeferencia no se ha completado.");
+	            } catch (SQLException ex) {
+	            	throw ex;
+	        }
+			}finally {
+				this.cerrar();
+			}
 	}
 
 	@Override
@@ -60,13 +96,35 @@ public class DAODatosImpl extends Conexion implements DAODatos{
 			this.conectar();
 			PreparedStatement st = (PreparedStatement) this.conexion.prepareStatement("DELETE FROM datos WHERE id = ? ");
 			st.setInt(1, raz.getId());
+			
+			// Las operaciones no se validan automaticamente
+			conexion.setAutoCommit(false); 
 			st.executeUpdate();
-		
-		}catch(Exception e) {
-			throw e;
-		}finally {
-			this.cerrar();
-		}
+			
+			if (st.executeUpdate() != 0){
+				conexion.commit();
+				st.executeUpdate();
+				System.out.println("\nDatos registrados en base de datos");
+			}
+			else {
+				  conexion.rollback();
+				  System.out.println("\nLa transacción no se ha realizado");
+			}
+			
+			} catch (SQLException e) {	         
+	            try {
+	                // Deshace los cambios hechos dentro de la transaccion 
+	            	conexion.rollback();
+	            	System.out.println("Error: La transeferencia no se ha completado.");
+	            } catch (SQLException ex) {
+	            	throw ex;
+	        }
+			}finally {
+				this.cerrar();
+			}
+			
+			
+
 	}
 
 	@Override
