@@ -9,7 +9,7 @@ public class Armas {
 	public HashMap<String, Integer> armasDefensa = new HashMap<String, Integer>();
 	Object[] ataque;
 	Object[] defensa;
-	Object armaAtaqueAleatoria;
+	public Object armaAtaqueAleatoria;
 	Object armaDefensaAleatoria;
 	
 	
@@ -31,15 +31,14 @@ public class Armas {
 		
 		defensa = armasDefensa.keySet().toArray();
 		armaDefensaAleatoria = armaAtaqueAleatoria;
-		
-		
+				
 	}
 		
 	
 	@Override
 	public String toString() {
 		
-		return "************ Arma Aleatoria ************ \n" + this.armaAtaqueAleatoria + " :: " + "( "+ armasAtaque.get(armaAtaqueAleatoria) + " ataque )" + this.armaDefensaAleatoria +  
+		return "************ Arma Aleatoria ************ \n" + this.armaAtaqueAleatoria + " :: " + "( "+ armasAtaque.get(armaAtaqueAleatoria) + " ataque )" + 
 		"( " + armasDefensa.get(armaDefensaAleatoria) + " defensa )" ; 
 				
 		

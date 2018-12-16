@@ -1,5 +1,10 @@
 package razas;
 
-public class Orco implements Raza {
+public class Orco {
 
+	static final int PUNTOS_ATAQUE = 7;
+	static final int PUNTOS_DEFENSA = 3;
+	int puntosTotales;
+	
+	
 }
