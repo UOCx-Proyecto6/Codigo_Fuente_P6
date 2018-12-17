@@ -9,6 +9,7 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Scanner;
 import java.awt.Color;
 
 
@@ -42,6 +43,7 @@ class Lamina_grafica extends JPanel{
 	JLabel label1= new JLabel("Pulsa una raza:");
 	JLabel label2= new JLabel("-------------------------------------INTERACCIÓN CON BASE DE DATOS-------------------------------------");
 	JLabel labelMostrar=new JLabel("ID----ARMA----RAZA");
+	JLabel labelcatch=new JLabel();
 	
 	JButton botonListar=new JButton("Listar");
 	JButton botonModificar=new JButton("Modificar");
@@ -49,6 +51,7 @@ class Lamina_grafica extends JPanel{
 	
 	JTextArea textof=new JTextArea();
 	JLabel labelEliminar1=new JLabel();
+	JLabel labelModificar1=new JLabel();
 
 
 	
@@ -66,8 +69,10 @@ class Lamina_grafica extends JPanel{
 		add(botonModificar);
 		add(botonEliminar);
 		add(textof);
+		add(labelcatch);
 		add(labelMostrar);
 		add(labelEliminar1);
+		add(labelModificar1);
 
 		
 		
@@ -83,8 +88,10 @@ class Lamina_grafica extends JPanel{
 		botonModificar.setBounds(450,290,100,30);
 		botonEliminar.setBounds(550,290,100,30);
 		textof.setBounds(50, 340, 150, 250);
+		labelcatch.setBounds(350, 315, 150, 30);
 		labelMostrar.setBounds(75, 315, 150, 30);
 		labelEliminar1.setBounds(700, 315, 150, 30);
+		labelModificar1.setBounds(440, 335, 150, 30);
 		
 		
 		
@@ -104,7 +111,7 @@ class Lamina_grafica extends JPanel{
 					
 				}catch(Exception o) {
 					
-					textof.setText(o.getMessage());
+					labelcatch.setText(o.getMessage());
 				}
 			}
 		    
@@ -117,7 +124,38 @@ class Lamina_grafica extends JPanel{
 		botonModificar.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e)
 		    {
-		        
+		    	
+		    	labelModificar1.setText(null);
+		    	int idi=Integer.parseInt(JOptionPane.showInputDialog("Introduce el id a modificar"));
+		    	
+		    	//se comprueba imprimiendo el id en la pantalla del sistema para probarlo
+		    	System.out.println(idi);
+		    	
+		    	Raza raze=new Raza();
+				raze.setId(idi);
+								
+				String ent2=JOptionPane.showInputDialog("Introduce la nueva arma");
+				raze.setArma(ent2);
+								
+				String ent3=JOptionPane.showInputDialog("Introduce la nueva raza");
+				raze.setRaza(ent3);
+
+				try{
+					
+					DAODatos dao=new DAODatosImpl();
+					dao.modificar(raze);
+					
+					labelModificar1.setText("El id ha sido eliminado");
+
+
+				}catch(Exception i) {
+					
+					labelcatch.setText(i.getMessage());
+				}
+		    	
+		    	
+		    	
+		    	
 		    	
 		    }
 		});	
@@ -129,10 +167,11 @@ class Lamina_grafica extends JPanel{
 		botonEliminar.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e)
 		    {
-		        
+				
+		    	labelEliminar1.setText(null);
 		    	int id=Integer.parseInt(JOptionPane.showInputDialog("Introduce el id a eliminar"));
 		    	
-		    	//se comprueba imprimiendo el id en la pantalla del sistema
+		    	//se comprueba imprimiendo el id en la pantalla del sistema para probarlo
 		    	System.out.println(id);
 
 		    	Raza raz=new Raza();
@@ -140,6 +179,7 @@ class Lamina_grafica extends JPanel{
 				
 				try{
 					
+
 					DAODatos dao=new DAODatosImpl();
 					dao.eliminar(raz);
 					
@@ -150,7 +190,7 @@ class Lamina_grafica extends JPanel{
 
 				}catch(Exception u) {
 					
-					System.out.println(u.getMessage());
+					labelcatch.setText(u.getMessage());
 				}
 		    	
 		    	
