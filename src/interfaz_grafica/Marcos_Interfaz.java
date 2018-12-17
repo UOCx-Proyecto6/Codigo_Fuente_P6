@@ -9,6 +9,7 @@ import java.awt.Color;
 
 
 
+
 public class Marcos_Interfaz extends JFrame{
 	
 	public Marcos_Interfaz() {
@@ -32,12 +33,16 @@ class Lamina_grafica extends JPanel{
 	JButton botonDemonio=new JButton("Demonio");
 	JButton botonElfo=new JButton("Elfo");
 	JButton botonCerrar = new JButton("Cerrar");		
-	JLabel label1= new JLabel("Pulsa una raza:");
 	
+	JLabel label1= new JLabel("Pulsa una raza:");
 	JLabel label2= new JLabel("-------------------------------------INTERACCIÓN CON BASE DE DATOS-------------------------------------");
+	
+	
 	JButton botonListar=new JButton("Listar");
 	JButton botonModificar=new JButton("Modificar");
 	JButton botonEliminar=new JButton("Eliminar");
+	
+	JLabel textof=new JLabel();
 	
 	
 	public Lamina_grafica(){
@@ -52,6 +57,7 @@ class Lamina_grafica extends JPanel{
 		add(botonListar);
 		add(botonModificar);
 		add(botonEliminar);
+		add(textof);
 
 		
 		
@@ -66,9 +72,53 @@ class Lamina_grafica extends JPanel{
 		botonListar.setBounds(350,290,100,30);
 		botonModificar.setBounds(450,290,100,30);
 		botonEliminar.setBounds(550,290,100,30);
+		textof.setBounds(100, 350, 300, 100);
+		
+		
+		
+		//botón listar base de datos
+		botonListar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				
+				//en proceso
+				textof.setText("Mostrar datos de base de datos");
+			}
+		    {
+		        
+		    	
+		    }
+		});	
+		
+		
+		
+		
+		//botón modificar en base de datos
+		botonModificar.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e)
+		    {
+		        
+		    	
+		    }
+		});	
+		
+		
+		
+		
+		//botón eliminar en base de datos
+		botonEliminar.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e)
+		    {
+		        
+		    	
+		    }
+		});	
+		
 
-	
-
+		
+		
+		
+		//botón cerrar
 		botonCerrar.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e)
 		    {
@@ -76,5 +126,7 @@ class Lamina_grafica extends JPanel{
 		    }
 		});	
 	}
+	
+	
 	
 }
