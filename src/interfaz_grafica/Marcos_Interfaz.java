@@ -1,5 +1,10 @@
 package interfaz_grafica;
 import javax.swing.*;
+
+import DAO.DAODatosImpl;
+import interfaces.DAODatos;
+import razas.Raza;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -36,13 +41,16 @@ class Lamina_grafica extends JPanel{
 	
 	JLabel label1= new JLabel("Pulsa una raza:");
 	JLabel label2= new JLabel("-------------------------------------INTERACCIÓN CON BASE DE DATOS-------------------------------------");
-	
+	JLabel labelMostrar=new JLabel("ID----ARMA----RAZA");
 	
 	JButton botonListar=new JButton("Listar");
 	JButton botonModificar=new JButton("Modificar");
 	JButton botonEliminar=new JButton("Eliminar");
 	
-	JLabel textof=new JLabel();
+	JTextArea textof=new JTextArea();
+	JLabel labelEliminar1=new JLabel();
+
+
 	
 	
 	public Lamina_grafica(){
@@ -58,6 +66,8 @@ class Lamina_grafica extends JPanel{
 		add(botonModificar);
 		add(botonEliminar);
 		add(textof);
+		add(labelMostrar);
+		add(labelEliminar1);
 
 		
 		
@@ -72,7 +82,9 @@ class Lamina_grafica extends JPanel{
 		botonListar.setBounds(350,290,100,30);
 		botonModificar.setBounds(450,290,100,30);
 		botonEliminar.setBounds(550,290,100,30);
-		textof.setBounds(100, 350, 300, 100);
+		textof.setBounds(50, 340, 150, 250);
+		labelMostrar.setBounds(75, 315, 150, 30);
+		labelEliminar1.setBounds(700, 315, 150, 30);
 		
 		
 		
@@ -80,14 +92,22 @@ class Lamina_grafica extends JPanel{
 		botonListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				
-				//en proceso
-				textof.setText("Mostrar datos de base de datos");
+		
+				try {
+					
+					DAODatos dao=new DAODatosImpl();
+					
+					for(Raza r:dao.listar()) {
+						
+						textof.setText(r.getId()+"      "+r.getArma()+"      "+r.getRaza());
+					}
+					
+				}catch(Exception o) {
+					
+					textof.setText(o.getMessage());
+				}
 			}
-		    {
-		        
-		    	
-		    }
+		    
 		});	
 		
 		
@@ -110,6 +130,31 @@ class Lamina_grafica extends JPanel{
 		    public void actionPerformed(ActionEvent e)
 		    {
 		        
+		    	int id=Integer.parseInt(JOptionPane.showInputDialog("Introduce el id a eliminar"));
+		    	
+		    	//se comprueba imprimiendo el id en la pantalla del sistema
+		    	System.out.println(id);
+
+		    	Raza raz=new Raza();
+				raz.setId(id);
+				
+				try{
+					
+					DAODatos dao=new DAODatosImpl();
+					dao.eliminar(raz);
+					
+					//se imprime el mensaje en la pantalla del sistema
+					System.out.println("Eliminado el id "+ id + " ");
+					
+					labelEliminar1.setText("El id ha sido eliminado");
+
+				}catch(Exception u) {
+					
+					System.out.println(u.getMessage());
+				}
+		    	
+		    	
+		    	
 		    	
 		    }
 		});	
