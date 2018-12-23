@@ -24,8 +24,11 @@ public class Personaje_prueba_2 {
 		Marcos_Interfaz mimarco=new Marcos_Interfaz();
 		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mimarco.setVisible(true);
+<<<<<<< HEAD
 		
 
+=======
+>>>>>>> master
 	
 	}
 

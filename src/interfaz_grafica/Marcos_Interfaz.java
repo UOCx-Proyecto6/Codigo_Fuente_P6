@@ -1,13 +1,19 @@
 package interfaz_grafica;
 import javax.swing.*;
 
+<<<<<<< HEAD
 import org.hibernate.Transaction;
 
+=======
+>>>>>>> master
 import DAO.DAODatosImpl;
 import armas.Armas;
 import interfaces.DAODatos;
 import razas.Raza;
+<<<<<<< HEAD
 import utils.HibernateUtils;
+=======
+>>>>>>> master
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -21,6 +27,7 @@ import org.hibernate.Session;
 
 import interfaz_grafica.Marcos_Interfaz;
 import java.util.Random;
+
 
 
 
@@ -50,8 +57,12 @@ class Lamina_grafica extends JPanel{
 	JButton botonOrco=new JButton("Orco");
 	JButton botonDemonio=new JButton("Demonio");
 	JButton botonElfo=new JButton("Elfo");
+<<<<<<< HEAD
 	JButton botonCerrar = new JButton("Cerrar");
 	JButton botonnuevoArma = new JButton("Crear nuevo Arma");	
+=======
+	JButton botonCerrar = new JButton("Cerrar");		
+>>>>>>> master
 	
 	JLabel label1= new JLabel("Pulsa una raza:");
 	JLabel label2= new JLabel("-------------------------------------INTERACCIÓN CON BASE DE DATOS-------------------------------------");
@@ -80,7 +91,10 @@ class Lamina_grafica extends JPanel{
 		add(botonOrco);
 		add(botonDemonio);
 		add(botonElfo);
+<<<<<<< HEAD
 		add(botonnuevoArma);
+=======
+>>>>>>> master
 		
 		add(botonCerrar);
 		
@@ -106,7 +120,10 @@ class Lamina_grafica extends JPanel{
 		botonOrco.setBounds(430,10,100,30);
 		botonDemonio.setBounds(550,10,100,30);
 		botonElfo.setBounds(670,10,100,30);
+<<<<<<< HEAD
 		botonnuevoArma.setBounds(790,10,180,30);
+=======
+>>>>>>> master
 		
 		botonCerrar.setBounds(460, 600, 100, 30);
 		botonCerrar.setBackground((new Color(51, 153, 255)));
@@ -249,6 +266,7 @@ class Lamina_grafica extends JPanel{
 								
 								
 								razaElegida.setText("Has ingresado un nuevo usuario con raza "+razas.elegirRaza(2)+" y "+armas.armaAtaqueAleatoria+" como arma aleatoria");
+<<<<<<< HEAD
 
 								
 							}catch (Exception w) {
@@ -455,6 +473,179 @@ class Lamina_grafica extends JPanel{
 					
 					labelEliminar1.setText("El id ha sido eliminado");
 
+=======
+
+								
+							}catch (Exception w) {
+								System.out.println(w.getMessage());
+							}	
+							
+							
+						}catch(Exception o) {
+							
+							labelcatch.setText(o.getMessage());
+						}
+					}
+				    
+				});
+		
+			//botón elfo
+				botonElfo.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e)
+					{
+				
+						//vaciar label
+						razaElegida.setText(null);
+				    	labelEliminar1.setText(null);
+				    	labelModificar1.setText(null);
+						
+						try {
+							
+							Armas armas = new Armas();
+							Raza razas = new Raza();
+							
+							//elegimos la raza
+							razas.elegirRaza(3);
+							
+							Raza raz=new Raza();
+							
+							raz.setArma(armas.armaAtaqueAleatoria);
+							raz.setRaza(razas.elegirRaza(3));
+							
+							try {
+								DAODatos dao=new DAODatosImpl();
+								dao.registrar(raz);
+								
+								
+								razaElegida.setText("Has ingresado un nuevo usuario con raza "+razas.elegirRaza(3)+" y "+armas.armaAtaqueAleatoria+" como arma aleatoria");
+
+								
+							}catch (Exception w) {
+								System.out.println(w.getMessage());
+							}	
+							
+							
+						}catch(Exception o) {
+							
+							labelcatch.setText(o.getMessage());
+						}
+					}
+				    
+				});
+		
+		
+		
+		
+		
+		//**************************************SEGUNDA PARTE DE LA APP********************************//
+		
+		//botón listar base de datos
+		botonListar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+		
+				
+				//vaciar label
+		    	razaElegida.setText(null);
+		    	labelEliminar1.setText(null);
+		    	labelModificar1.setText(null);
+				
+				try {
+					
+					DAODatos dao=new DAODatosImpl();
+					
+					for(Raza r:dao.listar()) {
+						
+						textof.setText(r.getId()+"      "+r.getArma()+"      "+r.getRaza());
+					}
+					
+				}catch(Exception o) {
+					
+					labelcatch.setText(o.getMessage());
+				}
+			}
+		    
+		});	
+		
+		
+		
+		
+		//botón modificar en base de datos
+		botonModificar.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e)
+		    {
+		    	
+		    	//vaciar label
+		    	razaElegida.setText(null);
+		    	labelEliminar1.setText(null);
+		    	labelModificar1.setText(null);
+		    	
+		    	int idi=Integer.parseInt(JOptionPane.showInputDialog("Introduce el id a modificar"));
+		    	
+		    	//se comprueba imprimiendo el id en la pantalla del sistema para probarlo
+		    	System.out.println(idi);
+		    	
+		    	Raza raze=new Raza();
+				raze.setId(idi);
+								
+				String ent2=JOptionPane.showInputDialog("Introduce la nueva arma");
+				raze.setArma(ent2);
+								
+				String ent3=JOptionPane.showInputDialog("Introduce la nueva raza");
+				raze.setRaza(ent3);
+
+				try{
+					
+					DAODatos dao=new DAODatosImpl();
+					dao.modificar(raze);
+					
+					labelModificar1.setText("El id ha sido eliminado");
+
+
+				}catch(Exception i) {
+					
+					labelcatch.setText(i.getMessage());
+				}
+		    	
+		    	
+		    	
+		    	
+		    	
+		    }
+		});	
+		
+		
+		
+		
+		//botón eliminar en base de datos
+		botonEliminar.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e)
+		    {
+				
+		    	//vaciar label
+		    	razaElegida.setText(null);
+		    	labelEliminar1.setText(null);
+		    	labelModificar1.setText(null);
+		    	int id=Integer.parseInt(JOptionPane.showInputDialog("Introduce el id a eliminar"));
+		    	
+		    	//se comprueba imprimiendo el id en la pantalla del sistema para probarlo
+		    	System.out.println(id);
+
+		    	Raza raz=new Raza();
+				raz.setId(id);
+				
+				try{
+					
+
+					DAODatos dao=new DAODatosImpl();
+					dao.eliminar(raz);
+					
+					//se imprime el mensaje en la pantalla del sistema
+					System.out.println("Eliminado el id "+ id + " ");
+					
+					labelEliminar1.setText("El id ha sido eliminado");
+
+>>>>>>> master
 				}catch(Exception u) {
 					
 					labelcatch.setText(u.getMessage());
