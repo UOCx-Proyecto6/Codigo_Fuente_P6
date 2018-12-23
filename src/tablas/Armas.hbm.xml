@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-dic-2018 12:55:59 by Hibernate Tools 5.1.0.Alpha1 -->
+<hibernate-mapping>
+    <class name="tablas.Armas" table="armas" catalog="pruebas_java" optimistic-lock="version">
+        <id name="arma" type="string">
+            <column name="arma" length="128" />
+            <generator class="assigned" />
+        </id>
+    </class>
+</hibernate-mapping>

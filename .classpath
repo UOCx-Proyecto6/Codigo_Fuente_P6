@@ -4,5 +4,20 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/Program Files (x86)/MySQL/Connector.J 5.1/mysql-connector-java-5.1.47-bin.jar"/>
 	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/xampp/htdocs/prueba/libs/antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/htdocs/prueba/libs/classmate-1.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/htdocs/prueba/libs/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/htdocs/prueba/libs/hibernate-commons-annotations-5.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/htdocs/prueba/libs/hibernate-core-5.2.11.Final.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/htdocs/prueba/libs/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/htdocs/prueba/libs/javassist-3.20.0-GA.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/htdocs/prueba/libs/jboss-annotations-api_1.2_spec-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/htdocs/prueba/libs/jboss-jms-api_2.0_spec-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/htdocs/prueba/libs/jboss-logging-3.3.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/htdocs/prueba/libs/jboss-transaction-api_1.2_spec-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/htdocs/prueba/libs/lucene-core-5.5.4.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/htdocs/prueba/libs/lucene-queryparser-5.5.4.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/htdocs/prueba/libs/mysql-connector-java-5.1.38-bin.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/htdocs/prueba/libs/xml-apis-1.3.03.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

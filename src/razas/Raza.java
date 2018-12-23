@@ -15,7 +15,24 @@ public class Raza {
 	Object razaElegida;
 	String [] razasString = {"Humano","Orco","Demonio", "Elfo"};
 	String razaAux;
-		
+
+	
+	private String raza;
+
+
+	/*public Razas(String raza) {
+		this.raza = raza;
+	}
+
+	public String getRaza() {
+		return this.raza;
+	}
+
+	public void setRaza(String raza) {
+		this.raza = raza;
+	}*/
+
+	
 	/**
 	 * 
 	 * @param  raza (int que marca la posición del objeto raza elegido);

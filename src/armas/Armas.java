@@ -3,14 +3,47 @@ package armas;
 import java.util.HashMap;
 import java.util.Random;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Column;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+
+@Entity
+@Table(name="armas")
+
 public class Armas {
 
+	@Transient
 	public HashMap<String, Integer> armasAtaque = new HashMap<String, Integer>();
+	@Transient
 	public HashMap<String, Integer> armasDefensa = new HashMap<String, Integer>();
+	@Transient
 	Object[] ataque;
+	@Transient
 	Object[] defensa;
+	@Transient
 	public Object armaAtaqueAleatoria;
+	@Transient
 	Object armaDefensaAleatoria;
+	
+	@Id
+	@Column(name="arma")
+	private String arma;
+
+
+	public Armas(String arma) {
+		this.arma = arma;
+	}
+
+	public String getArma() {
+		return this.arma;
+	}
+
+	public void setArma(String arma) {
+		this.arma = arma;
+	}
 	
 	
 	public Armas() {
